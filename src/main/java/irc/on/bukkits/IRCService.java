@@ -35,6 +35,9 @@ public abstract class IRCService {
         if (plugin == null || service == null) {
             throw new RuntimeException("Attempt to initialize IRCService with null values");
         }
+        if (!plugin.isEnabled()) {
+            throw new RuntimeException("Attempt to initialize IRCService with disabled plugin");
+        }
         this.plugin = plugin;
         plugin.getServer().getServicesManager().register(irc.on.bukkits.IRCService.class, service, plugin, ServicePriority.Normal);
     }
