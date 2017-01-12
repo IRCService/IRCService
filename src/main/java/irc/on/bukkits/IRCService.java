@@ -41,6 +41,36 @@ public abstract class IRCService {
         this.plugin = plugin;
         plugin.getServer().getServicesManager().register(irc.on.bukkits.IRCService.class, service, plugin, ServicePriority.Normal);
     }
+    
+    public abstract Plugin getIRCPlugin();
 
     public abstract void sendMessageToChannel(String channel, String message);
+    
+    public abstract void sendMessageToGame(String channel, String sender, String message);
+    
+    public abstract void sendMessageToUser(String user, String message);
+    
+    public abstract void sendRawLine(String line);
+    
+    public abstract void kick(String channel, String user, String reason);
+    
+    public abstract void ban(String channel, String user);
+    
+    public abstract void setUserMode(String channel, String user, String mode);
+    
+    public abstract void sendNoticeToUser(String user, String message);
+    
+    public abstract void sendNoticeToChannel(String channel, String message); //untested in my plugin will test l8r
+    
+    public abstract boolean isOp(String channel, String user);
+    
+    public abstract boolean isHalfOP(String channel, String user);
+    
+    public abstract boolean isAdmin(String channel, String user);
+    
+    public abstract boolean isVoice(String channel, String user);
+    
+    public abstract boolean isRankedUser(String channel, String user);
+    
+    //any more mbax? :3
 }
